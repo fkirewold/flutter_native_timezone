@@ -1,5 +1,7 @@
 name: flutter_timezone_example_spm
 description: "Demonstrates how to use the flutter_timezone plugin from an app using the Swift package manager."
+version: 0.0.1
+
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 environment:

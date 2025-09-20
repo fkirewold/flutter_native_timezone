@@ -1,6 +1,7 @@
-## Unreleased
+## 5.0.0
 
 * Update minimum MacOS version to 10.14 ([50](https://github.com/tjarvstrand/flutter_timezone/pull/50)) @bqubique
+* Change API return values to TimezoneInfo objects containing both the timezone name and, on supported platforms, the localized timezone name.
 
 ## 4.1.1
 

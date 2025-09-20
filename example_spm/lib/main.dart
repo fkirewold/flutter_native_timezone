@@ -13,8 +13,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  String _timezone = 'Unknown';
-  List<String> _availableTimezones = <String>[];
+  TimezoneInfo? _timezone;
+  List<TimezoneInfo> _availableTimezones = [];
 
   @override
   void initState() {
@@ -25,7 +25,7 @@ class _MyAppState extends State<MyApp> {
   Future<void> _initData() async {
     _timezone = await FlutterTimezone.getLocalTimezone();
     _availableTimezones = await FlutterTimezone.getAvailableTimezones();
-    _availableTimezones.sort();
+    _availableTimezones.sort((a, b) => a.identifier.compareTo(b.identifier));
     if (mounted) {
       setState(() {});
     }
@@ -49,7 +49,7 @@ class _MyAppState extends State<MyApp> {
                 style: Theme.of(context).textTheme.titleMedium,
               ),
               Text(
-                _timezone,
+                '${_timezone?.identifier ?? 'Unknown'} - ${_timezone?.localizedName?.name ?? 'Unknown'}',
                 key: const ValueKey('timeZoneLabel'),
               ),
               const SizedBox(height: 12),
@@ -60,7 +60,10 @@ class _MyAppState extends State<MyApp> {
               Expanded(
                 child: ListView.builder(
                   itemCount: _availableTimezones.length,
-                  itemBuilder: (_, index) => Text(_availableTimezones[index]),
+                  itemBuilder: (_, index) {
+                    final info = _availableTimezones[index];
+                    return Text('${info.identifier} - ${info.localizedName?.name ?? 'Unknown'}');
+                  },
                 ),
               )
             ],

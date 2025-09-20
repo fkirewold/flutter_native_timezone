@@ -12,8 +12,14 @@ Install this package and everything good will just follow along with you.
 
 ### Get the timezone
 ```dart
-final String currentTimeZone = await FlutterTimezone.getLocalTimezone();
+final TimezoneInfo currentTimeZone = await FlutterTimezone.getLocalTimezone();
 ```
+
+### Localized timezone names
+
+On supported platforms Timezone info will contain the localized timezone name. Currently, this is supported on:
+ - MacOS
+ - iOS
 
 ## Reference
 
