@@ -18,6 +18,7 @@ final TimezoneInfo currentTimeZone = await FlutterTimezone.getLocalTimezone();
 ### Localized timezone names
 
 On supported platforms Timezone info will contain the localized timezone name. Currently, this is supported on:
+ - Android
  - MacOS
  - iOS
 

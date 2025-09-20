@@ -18,5 +18,6 @@ void main() {
     TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger.setMockMethodCallHandler(channel, null);
   });
 
-  test('getLocalTimezone', () async => expect(await FlutterTimezone.getLocalTimezone(), '42'));
+  test(
+      'getLocalTimezone', () async => expect(await FlutterTimezone.getLocalTimezone(), TimezoneInfo(identifier: '42')));
 }
